@@ -36,7 +36,7 @@ struct TestPersonData {
 
 
 void make_mpi_type(MPI_Datatype* dt) {
-    int count = 7;
+    const int count = 7;
     MPI_Datatype types[count] = { MPI_UNSIGNED, MPI_INT, MPI_INT, MPI_UNSIGNED, MPI_UNSIGNED,
             MPI_INT, MPI_DOUBLE };
     int block_lengths[count] = { 1, 1, 1, 1, 1, 24, 1 };

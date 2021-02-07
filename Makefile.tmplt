@@ -18,6 +18,8 @@ LIB_EXT =
 OS := $(shell uname)
 
 ifeq ($(OS),Darwin)
+ CXX_FLAGS = -Xpreprocessor -fopenmp $(CXX_DEBUG_FLAGS)
+ LD_FLAGS = -Xpreprocessor -fopenmp
  LIB_LD_FLAGS += -dynamiclib
  LIB_EXT = dylib
 else
@@ -48,6 +50,9 @@ TEST_INCLUDES = $(INCLUDES) -I $(GTEST_HOME)/include
 
 LIBS += -L $(REPAST_LIB_DIR) -l$(REPAST_LIB)
 LIBS += -L $(BOOST_LIB_DIR) $(BOOST_LIBS)
+ifeq ($(OS),Darwin)
+ LIBS += -L /usr/local/lib -lomp
+endif
 
 RPATHS += -Wl,-rpath -Wl,$(REPAST_LIB_DIR)
 

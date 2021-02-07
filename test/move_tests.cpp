@@ -31,7 +31,7 @@ struct Data {
 };
 
 void make_data_type(MPI_Datatype* data_type) {
-    int count = 5;
+    const int count = 5;
     MPI_Datatype types[count] = { MPI_INT, MPI_INT, MPI_UNSIGNED, MPI_DOUBLE, MPI_INT};
     int block_lengths[count] = { 1, 1, 1, 5, 1};
     MPI_Aint displacements[count];

@@ -11,7 +11,7 @@
 using namespace repast;
 
 void make_mpi_type(MPI_Datatype* dt) {
-    int count = 6;
+    const int count = 6;
     MPI_Datatype types[count] = { MPI_UNSIGNED, MPI_INT, MPI_INT, MPI_UNSIGNED, MPI_UNSIGNED,
             MPI_INT };
     int block_lengths[count] = { 1, 1, 1, 1, 1, 24};
